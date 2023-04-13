@@ -26,7 +26,8 @@ public class Planner extends Helper {
         ObjectMapper mapper = new ObjectMapper();
         String filePath = getMealsFilePath();
         File file = new File(filePath);
-        List<Meal> mealObjects = mapper.readValue(file, new TypeReference<List<Meal>>(){});
+        List<Meal> mealObjects = mapper.readValue(file, new TypeReference<>() {
+        });
 
         Meal meal = new Meal();
         addMeal.setMealName(meal);

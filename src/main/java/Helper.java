@@ -1,5 +1,3 @@
-import java.io.File;
-
 public class Helper {
 
     public static String getProjectDirectory() {
@@ -9,11 +7,4 @@ public class Helper {
     public static String getMealsFilePath() {
         return getProjectDirectory() + "\\src\\main\\java\\" + "test.json";
     }
-
-    public static Boolean doesFileExist() {
-        String filePath = getMealsFilePath();
-        File file = new File(filePath);
-        return file.exists();
-    }
-
 }
