@@ -1,8 +1,10 @@
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Planner extends Helper {
@@ -20,21 +22,19 @@ public class Planner extends Helper {
 
     private static void addMeal() throws IOException {
         AddMeal addMeal = new AddMeal();
-        Meal meal = new Meal();
-        if (doesFileExist()) {
-            String string = "";
-        }
-        addMeal.addMeal(meal);
 
-        Gson gson = new Gson();
-        String json = gson.toJson(meal);
-
-//        String fileName = meal.getName() + ".json";
-//        String projectDir = getProjectDirectory();
+        ObjectMapper mapper = new ObjectMapper();
         String filePath = getMealsFilePath();
-        FileWriter writer = new FileWriter(filePath);
-        writer.write(json);
-        writer.close();
+        File file = new File(filePath);
+        List<Meal> mealObjects = mapper.readValue(file, new TypeReference<List<Meal>>(){});
+
+        Meal meal = new Meal();
+        addMeal.setMealName(meal);
+        addMeal.setMealLink(meal);
+        addMeal.setMealRating(meal);
+        mealObjects.add(meal);
+
+        mapper.writeValue(file, mealObjects);
     }
 
     private static void editMeal() {

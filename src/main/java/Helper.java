@@ -7,7 +7,7 @@ public class Helper {
     }
 
     public static String getMealsFilePath() {
-        return getProjectDirectory() + "\\src\\main\\java\\meals\\" + "test.json";
+        return getProjectDirectory() + "\\src\\main\\java\\" + "test.json";
     }
 
     public static Boolean doesFileExist() {
