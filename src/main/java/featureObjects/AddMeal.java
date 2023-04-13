@@ -1,3 +1,7 @@
+package featureObjects;
+
+import objects.Meal;
+
 import java.util.Scanner;
 
 public class AddMeal {

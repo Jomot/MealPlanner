@@ -1,5 +1,8 @@
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import featureObjects.AddMeal;
+import featureObjects.GeneratePlan;
+import objects.Meal;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,8 +52,8 @@ public class Planner extends Helper {
 
     private static void displayMenu() {
         System.out.println("--------Menu--------");
-        System.out.println("-- 1 - Plan Meal ---");
-        System.out.println("-- 2 - Add Meal ----");
+        System.out.println("-- 1 - Plan objects.Meal ---");
+        System.out.println("-- 2 - Add objects.Meal ----");
         System.out.println("-- 3 - Edit Meals --");
         System.out.println("--------------------");
         System.out.println("Enter:");
