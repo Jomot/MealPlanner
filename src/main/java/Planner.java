@@ -1,5 +1,3 @@
-package main.java;
-
 import com.google.gson.Gson;
 
 import java.io.FileWriter;
@@ -23,15 +21,17 @@ public class Planner extends Helper {
     private static void addMeal() throws IOException {
         AddMeal addMeal = new AddMeal();
         Meal meal = new Meal();
-
+        if (doesFileExist()) {
+            String string = "";
+        }
         addMeal.addMeal(meal);
 
         Gson gson = new Gson();
         String json = gson.toJson(meal);
 
-        String fileName = meal.getName() + ".json";
-        String projectDir = getProjectDirectory();
-        String filePath = projectDir + "\\src\\main\\java\\meals\\" + fileName;
+//        String fileName = meal.getName() + ".json";
+//        String projectDir = getProjectDirectory();
+        String filePath = getMealsFilePath();
         FileWriter writer = new FileWriter(filePath);
         writer.write(json);
         writer.close();
