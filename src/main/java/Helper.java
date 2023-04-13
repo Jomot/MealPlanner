@@ -1,3 +1,5 @@
+package main.java;
+
 public class Helper {
 
     public static String getProjectDirectory() {

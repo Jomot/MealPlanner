@@ -1,3 +1,5 @@
+package main.java;
+
 import com.google.gson.Gson;
 
 import java.io.FileWriter;
@@ -29,7 +31,7 @@ public class Planner extends Helper {
 
         String fileName = meal.getName() + ".json";
         String projectDir = getProjectDirectory();
-        String filePath = projectDir + "\\src\\meals\\" + fileName;
+        String filePath = projectDir + "\\src\\main\\java\\meals\\" + fileName;
         FileWriter writer = new FileWriter(filePath);
         writer.write(json);
         writer.close();
