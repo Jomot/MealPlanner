@@ -1,12 +1,21 @@
 [
   {
-    "name": "t",
-    "link": "t",
-    "rating": "t"
-  },
-  {
-    "name": "test",
-    "link": "test",
-    "rating": "test"
+    "name": "Spaghetti",
+    "ingredients": [
+      {
+        "name": "Pasta",
+        "quantity": "100g"
+      },
+      {
+        "name": "Red Onion ",
+        "quantity": "1"
+      },
+      {
+        "name": "Chopped Tomatoes",
+        "quantity": "1 can"
+      }
+    ],
+    "link": "link",
+    "rating": "5"
   }
 ]

@@ -33,9 +33,10 @@ public class Planner extends Helper {
         });
 
         Meal meal = new Meal();
-        addMeal.setMealName(meal);
-        addMeal.setMealLink(meal);
-        addMeal.setMealRating(meal);
+        addMeal.setName(meal);
+        addMeal.setIngredients(meal);
+        addMeal.setLink(meal);
+        addMeal.setRating(meal);
         mealObjects.add(meal);
 
         mapper.writeValue(file, mealObjects);
@@ -52,8 +53,8 @@ public class Planner extends Helper {
 
     private static void displayMenu() {
         System.out.println("--------Menu--------");
-        System.out.println("-- 1 - Plan objects.Meal ---");
-        System.out.println("-- 2 - Add objects.Meal ----");
+        System.out.println("-- 1 - Plan Meal ---");
+        System.out.println("-- 2 - Add Meal ----");
         System.out.println("-- 3 - Edit Meals --");
         System.out.println("--------------------");
         System.out.println("Enter:");
