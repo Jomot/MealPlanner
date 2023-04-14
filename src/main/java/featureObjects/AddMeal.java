@@ -16,22 +16,21 @@ public class AddMeal {
     }
 
     public void setIngredients(Meal meal) {
-        System.out.println("Setting meal ingredients:");
-        System.out.println("Enter 'Done' to finish ingredients:");
+        System.out.println("Setting meal ingredients");
+        System.out.println("***** Enter 'Done' to finish ingredients *****");
         List<Ingredient> ingredients = new ArrayList<>();
-        String ingredient = "";
-        while (!ingredient.equals("Done")) {
-            Ingredient ingredientObject = new Ingredient();
+        String name = "";
+        while (!name.equals("Done")) {
+            Ingredient ingredient = new Ingredient();
             System.out.println("Ingredient: ");
-            ingredient = scanner.nextLine();
-            if (!ingredient.equals("Done")) {
-                ingredientObject.setName(ingredient);
+            name = scanner.nextLine();
+            if (!name.equals("Done")) {
+                ingredient.setName(name);
                 System.out.println("Quantity: ");
-                ingredientObject.setQuantity(scanner.nextLine());
-                ingredients.add(ingredientObject);            }
+                ingredient.setQuantity(scanner.nextLine());
+                ingredients.add(ingredient);            }
         }
         meal.setIngredients(ingredients);
-
     }
 
     public void setLink(Meal meal) {
