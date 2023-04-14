@@ -2,6 +2,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import featureObjects.AddMeal;
 import featureObjects.GeneratePlan;
+import featureObjects.Helper;
 import objects.Meal;
 
 import java.io.File;
@@ -46,9 +47,9 @@ public class Planner extends Helper {
 
     }
 
-    private static void generatePlan() {
+    private static void generatePlan() throws IOException {
         GeneratePlan generatePlan = new GeneratePlan();
-        generatePlan.createMealList();
+        List<Meal> meals = generatePlan.createMealList();
     }
 
     private static void displayMenu() {

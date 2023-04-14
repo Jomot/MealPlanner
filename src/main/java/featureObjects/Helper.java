@@ -1,4 +1,10 @@
+package featureObjects;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Helper {
+
+    protected ObjectMapper mapper = new ObjectMapper();
 
     public static String getProjectDirectory() {
         return System.getProperty("user.dir");

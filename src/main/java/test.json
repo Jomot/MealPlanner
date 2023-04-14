@@ -17,5 +17,32 @@
     ],
     "link": "link",
     "rating": "5"
+  },
+  {
+    "name": "Tofu Noodles",
+    "ingredients": [
+      {
+        "name": "Tofu",
+        "quantity": "Half a block"
+      },
+      {
+        "name": "Noodles",
+        "quantity": "1 bag"
+      },
+      {
+        "name": "Kimchi",
+        "quantity": "1 can"
+      },
+      {
+        "name": "Fried egg",
+        "quantity": "1"
+      },
+      {
+        "name": "Sauce",
+        "quantity": "1"
+      }
+    ],
+    "link": "link",
+    "rating": "5"
   }
 ]
