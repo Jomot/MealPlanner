@@ -1,11 +1,8 @@
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import featureObjects.AddMeal;
 import featureObjects.GeneratePlan;
 import featureObjects.Helper;
 import objects.Meal;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
@@ -21,26 +18,23 @@ public class Planner extends Helper {
             case 3 -> editMeal();
             default -> throw new ParseException("Invalid option entered", 0);
         }
+        // TODO: 15/04/2023 allow user to make another choice before ending
         displayMenu();
     }
 
     private static void addMeal() throws IOException {
         AddMeal addMeal = new AddMeal();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String filePath = getMealsFilePath();
-        File file = new File(filePath);
-        List<Meal> mealObjects = mapper.readValue(file, new TypeReference<>() {
-        });
-
+        List<Meal> mealObjects = convertMealsJsonToList();
         Meal meal = new Meal();
         addMeal.setName(meal);
         addMeal.setIngredients(meal);
         addMeal.setLink(meal);
         addMeal.setRating(meal);
         mealObjects.add(meal);
+        writeObjectToFile(mealObjects);
 
-        mapper.writeValue(file, mealObjects);
+        displayMenu();
     }
 
     private static void editMeal() {
@@ -49,7 +43,11 @@ public class Planner extends Helper {
 
     private static void generatePlan() throws IOException {
         GeneratePlan generatePlan = new GeneratePlan();
-        List<Meal> meals = generatePlan.createMealList();
+        Meal meal;
+        meal = generatePlan.getRandomMealFromList();
+        generatePlan.outputIngredients(meal);
+        meal = generatePlan.rollAgain(meal);
+        generatePlan.displayLink(meal);
     }
 
     private static void displayMenu() {

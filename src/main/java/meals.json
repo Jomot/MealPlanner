@@ -44,5 +44,32 @@
     ],
     "link": "link",
     "rating": "5"
+  },
+  {
+    "name": "Beef Stroganoff",
+    "ingredients": [
+      {
+        "name": "Quorn Beef",
+        "quantity": "1 bag"
+      },
+      {
+        "name": "Mustard",
+        "quantity": "1 spoon"
+      },
+      {
+        "name": "Crem freiche",
+        "quantity": "150g"
+      },
+      {
+        "name": "Rice",
+        "quantity": "1 bag"
+      },
+      {
+        "name": "Red onion",
+        "quantity": "1"
+      }
+    ],
+    "link": "Homemade",
+    "rating": "4"
   }
 ]

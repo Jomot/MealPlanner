@@ -5,28 +5,26 @@ import objects.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class AddMeal {
-    Scanner scanner = new Scanner(System.in);
+public class AddMeal extends Helper {
 
     public void setName(Meal meal) {
-        System.out.println("Setting meal name:");
+        log("Setting meal name:");
         meal.setName(scanner.nextLine());
     }
 
     public void setIngredients(Meal meal) {
-        System.out.println("Setting meal ingredients");
-        System.out.println("***** Enter 'Done' to finish ingredients *****");
+        log("Setting meal ingredients");
+        log("***** Enter 'Done' to finish ingredients *****");
         List<Ingredient> ingredients = new ArrayList<>();
         String name = "";
-        while (!name.equals("Done")) {
+        while (!name.equalsIgnoreCase("done")) {
             Ingredient ingredient = new Ingredient();
-            System.out.println("Ingredient: ");
+            log("Ingredient: ");
             name = scanner.nextLine();
             if (!name.equals("Done")) {
                 ingredient.setName(name);
-                System.out.println("Quantity: ");
+                log("Quantity: ");
                 ingredient.setQuantity(scanner.nextLine());
                 ingredients.add(ingredient);            }
         }
@@ -34,12 +32,12 @@ public class AddMeal {
     }
 
     public void setLink(Meal meal) {
-        System.out.println("Setting recipe link:");
+        log("Setting recipe link:");
         meal.setLink(scanner.nextLine());
     }
 
     public void setRating(Meal meal) {
-        System.out.println("Setting meal rating:");
+        log("Setting meal rating:");
         meal.setRating(scanner.nextLine());
     }
 
