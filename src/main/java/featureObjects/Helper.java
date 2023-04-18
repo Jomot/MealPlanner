@@ -15,6 +15,7 @@ public class Helper {
     protected static final File file = new File(filePath);
     protected static final ObjectMapper mapper = new ObjectMapper();
     protected Scanner scanner = new Scanner(System.in);
+    protected List<Meal> meals;
 
     public void log(Object obj) {
         System.out.println(obj);
@@ -35,5 +36,13 @@ public class Helper {
 
     public static void writeObjectToFile(List<Meal> mealObjects) throws IOException {
         mapper.writeValue(file, mealObjects);
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Meal> createMealList() throws IOException {
+        File file = new File(getMealsFilePath());
+        List<Object> jsonArray = mapper.readValue(file, List.class);
+        String jsonString = mapper.writeValueAsString(jsonArray);
+        return mapper.readValue(jsonString, new TypeReference<List<Meal>>(){});
     }
 }

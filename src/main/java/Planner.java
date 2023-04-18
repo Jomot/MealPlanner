@@ -1,6 +1,7 @@
 import featureObjects.AddMeal;
 import featureObjects.GeneratePlan;
 import featureObjects.Helper;
+import featureObjects.Select;
 import objects.Meal;
 
 import java.io.IOException;
@@ -9,13 +10,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Planner extends Helper {
+
+    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws ParseException, IOException {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         displayMenu();
         switch (scanner.nextInt()) {
             case 1 -> generatePlan();
             case 2 -> addMeal();
-            case 3 -> editMeal();
+            case 3 -> selectMeal();
+            case 4 -> editMeal();
             default -> throw new ParseException("Invalid option entered", 0);
         }
         // TODO: 15/04/2023 allow user to make another choice before ending
@@ -37,6 +41,13 @@ public class Planner extends Helper {
         displayMenu();
     }
 
+    private static void selectMeal() throws IOException {
+        Select select = new Select();
+        select.displayMeals();
+        Meal selectedMeal = select.selectMeal();
+        select.displaySelectedMealIngredients(selectedMeal);
+    }
+
     private static void editMeal() {
 
     }
@@ -54,7 +65,8 @@ public class Planner extends Helper {
         System.out.println("--------Menu--------");
         System.out.println("-- 1 - Plan Meal ---");
         System.out.println("-- 2 - Add Meal ----");
-        System.out.println("-- 3 - Edit Meals --");
+        System.out.println("-- 3 - Select Meal -");
+        System.out.println("-- 4 - Edit Meals --");
         System.out.println("--------------------");
         System.out.println("Enter:");
     }
