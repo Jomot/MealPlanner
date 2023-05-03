@@ -23,6 +23,7 @@ public class Select extends Helper {
         int index = scanner.nextInt();
         Meal mealToUse = meals.get(index -1);
         assert mealToUse != null;
+        log(mealToUse.name);
         return mealToUse;
     }
 

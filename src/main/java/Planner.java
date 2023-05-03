@@ -5,30 +5,19 @@ import featureObjects.Select;
 import objects.Meal;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Planner extends Helper {
 
     public static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) throws ParseException, IOException {
-        //Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
         displayMenu();
-        switch (scanner.nextInt()) {
-            case 1 -> generatePlan();
-            case 2 -> addMeal();
-            case 3 -> selectMeal();
-            case 4 -> editMeal();
-            default -> throw new ParseException("Invalid option entered", 0);
-        }
-        // TODO: 15/04/2023 allow user to make another choice before ending
-        displayMenu();
+        acceptMenuInput();
     }
 
     private static void addMeal() throws IOException {
         AddMeal addMeal = new AddMeal();
-
         List<Meal> mealObjects = convertMealsJsonToList();
         Meal meal = new Meal();
         addMeal.setName(meal);
@@ -37,8 +26,6 @@ public class Planner extends Helper {
         addMeal.setRating(meal);
         mealObjects.add(meal);
         writeObjectToFile(mealObjects);
-
-        displayMenu();
     }
 
     private static void selectMeal() throws IOException {
@@ -48,8 +35,10 @@ public class Planner extends Helper {
         select.displaySelectedMealIngredients(selectedMeal);
     }
 
-    private static void editMeal() {
-
+    private static void editMeal() throws IOException {
+        System.out.println("Functionality coming soon...");
+        displayMenu();
+        acceptMenuInput();
     }
 
     private static void generatePlan() throws IOException {
@@ -67,7 +56,27 @@ public class Planner extends Helper {
         System.out.println("-- 2 - Add Meal ----");
         System.out.println("-- 3 - Select Meal -");
         System.out.println("-- 4 - Edit Meals --");
+        System.out.println("-- 5 - Exit --------");
         System.out.println("--------------------");
         System.out.println("Enter:");
+    }
+
+    private static void acceptMenuInput() throws IOException {
+        switch (scanner.nextInt()) {
+            case 1 -> generatePlan();
+            case 2 -> {
+                addMeal();
+                displayMenu();
+                acceptMenuInput();
+            }
+            case 3 -> selectMeal();
+            case 4 -> editMeal();
+            case 5 -> {}
+            default -> {
+                System.out.println("Invalid option entered");
+                displayMenu();
+                acceptMenuInput();
+            }
+        }
     }
 }
